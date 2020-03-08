@@ -58,7 +58,7 @@ function initializeApp() {
             window.location.href = "order.php";
         }
     }else{
-        if (liff.isLoggedIn()) {
+        if (!liff.isLoggedIn()) {
             getProfile();
             handleOrder();  
         }else{
@@ -90,7 +90,7 @@ function handleOrder()
         document.getElementById('btnOrder').addEventListener('click', function(){
             liff.sendMessages([{
                 'type': 'text',
-                'text': ""
+                'text': "contoh"
             }]).then(function() {
                 window.alert('Ini adalah pesan dari fitur Send Message');
             }).catch(function(error) {
@@ -104,7 +104,7 @@ function handleOrder()
 
 function getProfile(){
     liff.getProfile().then(function(profile) {
-        document.getElementById('displayNameField').textContent = profile.displayName;
+        document.getElementById('displayName').textContent = profile.displayName;
     }).catch(function(error) {
         window.alert('Error getting profile: ' + error);
     });
