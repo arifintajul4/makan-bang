@@ -58,7 +58,7 @@ function initializeApp() {
             window.location.href = "order.php";
         }
     }else{
-        if (!liff.isLoggedIn()) {
+        if (liff.isLoggedIn()) {
             getProfile();
             handleOrder();  
         }else{
