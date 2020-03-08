@@ -52,7 +52,6 @@ function initializeApp() {
     if(btnLogin){
         btnLogin.addEventListener('click', function() {
             liff.login();
-            window.location.href = "order.php";
         });
     }else{
         handleBtnOrder();   
@@ -66,9 +65,6 @@ function handleBtnOrder()
         document.getElementById('btnLogout').addEventListener('click', function() {
             if (liff.isLoggedIn()) {
                 liff.logout();
-                window.location.href = "index.php";
-            }else{
-                window.location.href = "index.php";
             }
         });
     } else {
