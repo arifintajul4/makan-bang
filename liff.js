@@ -59,22 +59,24 @@ function initializeApp() {
         }
     }else{
         if (liff.isLoggedIn()) {
-            handleBtnOrder();  
+            getProfile();
+            handleOrder();  
         }else{
             window.location.href = "index.php";
         } 
     }
 }
 
-function handleBtnOrder()
+function handleOrder()
 {
     if (!liff.isInClient()) {
         document.getElementById("openInBrowser").classList.add('hidden');
         document.getElementById('btnLogout').addEventListener('click', function() {
-            if (liff.isLoggedIn()) {
-                liff.logout();
-                window.location.href = "index.php";
-            }
+            liff.logout();
+            window.location.href = "index.php";
+        });
+        document.getElementById('btnOrder').addEventListener('click', function(){
+            window.alert('Fitur ini hanya dapat digunakan di aplikasi LINE');
         });
     } else {
         document.getElementById("btnLogout").classList.add('hidden');
@@ -84,5 +86,26 @@ function handleBtnOrder()
                 external: true
             });
         });
+
+        document.getElementById('btnOrder').addEventListener('click', function(){
+            liff.sendMessages([{
+                'type': 'text',
+                'text': ""
+            }]).then(function() {
+                window.alert('Ini adalah pesan dari fitur Send Message');
+            }).catch(function(error) {
+                window.alert('Error sending message: ' + error);
+            });
+        });
+            
     }
+
+}
+
+function getProfile(){
+    liff.getProfile().then(function(profile) {
+        document.getElementById('displayNameField').textContent = profile.displayName;
+    }).catch(function(error) {
+        window.alert('Error getting profile: ' + error);
+    });
 }

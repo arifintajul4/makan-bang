@@ -2,7 +2,7 @@
     <div id="liffAppContent" class="container">
         <h1 class="text-muted">MakanBang </h1>
         <hr class="mb-3">
-        <p>Hi <b>Customer!</b> kuy jajan, kakak bisa pilih menu dibawah</p>
+        <p>Hi <b id="displayName">Customer!</b> kuy jajan, kakak bisa pilih menu dibawah</p>
         <div class="row">
         	<div class="col-12">
         		<h4>Makanan</h4>
@@ -106,7 +106,7 @@
         		</p>
         	</div>
         	<div class="col-6">
-        		<a href="" class="btn btn-success float-right mr-4">Pesan Sekarang</a>
+        		<button id="btnOrder" class="btn btn-success float-right mr-4">Pesan Sekarang</button>
         	</div>
         </div>
         <div class="text-center">
