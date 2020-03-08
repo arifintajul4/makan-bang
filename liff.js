@@ -66,6 +66,14 @@ function initializeApp() {
         } 
     }
 }
+function getProfile(){
+    liff.getProfile().then(function(profile) {
+        var displayName = profile.displayName;
+        document.getElementById('displayName').textContent = displayName;
+    }).catch(function(error) {
+        window.alert('Error getting profile: ' + error);
+    });
+}
 
 function handleOrder()
 {
@@ -88,26 +96,22 @@ function handleOrder()
         });
 
         document.getElementById('btnOrder').addEventListener('click', function(){
-            var message = "Hai "+displayName+"\n\nTerimakasih telah memesan makanan, berikut adalah review pesanannya:\n\n"+pesanan+"\n\nPesanan kakak akan segera diproses dan akan diberitahu jika sudah diambil.\n\nMohon ditunggu ya!";
-            liff.sendMessages([{
-                'type': 'text',
-                'text': message
-            }]).then(function() {
-                window.alert('Sukses melakukan pemesanan, silahkan cek pesan anda');
-            }).catch(function(error) {
-                window.alert('Error sending message: ' + error);
-            });
+            let message = "Hai "+displayName+"\n\nTerimakasih telah memesan makanan, berikut adalah review pesanannya:\n\n"+pesanan+"\n\nPesanan kakak akan segera diproses dan akan diberitahu jika sudah diambil.\n\nMohon ditunggu ya!";
+            if(pesanan != ''){
+                liff.sendMessages([{
+                    'type': 'text',
+                    'text': message
+                }]).then(function() {
+                    window.alert('Sukses melakukan pemesanan, silahkan cek pesan anda');
+                }).catch(function(error) {
+                    window.alert('Error sending message: ' + error);
+                });
+            }else{
+                window.alert('Silahkan pilih menu dulu!');
+            }
+            
         });
             
     }
 
-}
-
-function getProfile(){
-    liff.getProfile().then(function(profile) {
-        var displayName = profile.displayName;
-        document.getElementById('displayName').textContent = displayName;
-    }).catch(function(error) {
-        window.alert('Error getting profile: ' + error);
-    });
 }
