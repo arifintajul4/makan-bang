@@ -58,7 +58,11 @@ function initializeApp() {
             window.location.href = "order.php";
         }
     }else{
-        handleBtnOrder();   
+        if (liff.isLoggedIn()) {
+            handleBtnOrder();  
+        }else{
+            window.location.href = "index.php";
+        } 
     }
 }
 
@@ -69,6 +73,7 @@ function handleBtnOrder()
         document.getElementById('btnLogout').addEventListener('click', function() {
             if (liff.isLoggedIn()) {
                 liff.logout();
+                window.location.href = "index.php";
             }
         });
     } else {
