@@ -88,11 +88,12 @@ function handleOrder()
         });
 
         document.getElementById('btnOrder').addEventListener('click', function(){
+            var message = "Hai "+displayName+"\n\nTerimakasih telah memesan makanan, berikut adalah review pesanannya:\n\n"+pesanan+"\n\nPesanan kakak akan segera diproses dan akan diberitahu jika sudah diambil.\n\nMohon ditunggu ya!";
             liff.sendMessages([{
                 'type': 'text',
-                'text': "contoh"
+                'text': message
             }]).then(function() {
-                window.alert('Ini adalah pesan dari fitur Send Message');
+                window.alert('Sukses melakukan pemesanan, silahkan cek pesan anda');
             }).catch(function(error) {
                 window.alert('Error sending message: ' + error);
             });
@@ -104,7 +105,8 @@ function handleOrder()
 
 function getProfile(){
     liff.getProfile().then(function(profile) {
-        document.getElementById('displayName').textContent = profile.displayName;
+        var displayName = profile.displayName;
+        document.getElementById('displayName').textContent = displayName;
     }).catch(function(error) {
         window.alert('Error getting profile: ' + error);
     });

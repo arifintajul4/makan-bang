@@ -16,11 +16,11 @@
 				  		<div class="col-6 col-md-2">
 				  			<div class="input-group mb-3">
 								<div class="input-group-prepend">
-							    	<button class="btn btn-success kurang" type="button">-</button>
+							    	<button class="btn btn-success kurang" type="button" data-jenis="nasbak">-</button>
 								</div>
-							  	<input type="text" class="text-center form-control" value="0" readonly>
+							  	<input type="text" class="text-center form-control" value="0" id="nasbak" data-harga="15000" readonly>
 							  	<div class="input-group-append">
-    								<button class="btn btn-success tambah" type="button">+</button>
+    								<button class="btn btn-success tambah" type="button" data-jenis="nasbak">+</button>
   								</div>
 							</div>
 				  		</div>
@@ -37,11 +37,11 @@
 				  		<div class="col-6 col-md-2">
 				  			<div class="input-group mb-3">
 								<div class="input-group-prepend">
-							    	<button class="btn btn-success kurang" type="button">-</button>
+							    	<button class="btn btn-success kurang" type="button" data-jenis="nasgor">-</button>
 								</div>
-							  	<input type="text" class="text-center form-control" value="0" readonly>
+							  	<input id="nasgor" type="text" class="text-center form-control" value="0" data-harga="15000" readonly>
 							  	<div class="input-group-append">
-    								<button class="btn btn-success tambah" type="button">+</button>
+    								<button class="btn btn-success tambah" type="button" data-jenis="nasgor">+</button>
   								</div>
 							</div>
 				  		</div>
@@ -63,11 +63,11 @@
 				  		<div class="col-6 col-md-2">
 				  			<div class="input-group mb-3">
 								<div class="input-group-prepend">
-							    	<button class="btn btn-success kurang" type="button">-</button>
+							    	<button class="btn btn-success kurang" type="button" data-jenis="mineral">-</button>
 								</div>
-							  	<input type="text" class="text-center form-control" value="0" readonly>
+							  	<input id="mineral" type="text" class="text-center form-control" value="0" data-harga="3000" readonly>
 							  	<div class="input-group-append">
-    								<button class="btn btn-success tambah" type="button">+</button>
+    								<button class="btn btn-success tambah" type="button" data-jenis="mineral">+</button>
   								</div>
 							</div>
 				  		</div>
@@ -84,11 +84,11 @@
 				  		<div class="col-6 col-md-2">
 				  			<div class="input-group mb-3">
 								<div class="input-group-prepend">
-							    	<button class="btn btn-success kurang" type="button">-</button>
+							    	<button class="btn btn-success kurang" type="button" data-jenis="esteh">-</button>
 								</div>
-							  	<input type="text" class="text-center form-control" value="0" readonly>
+							  	<input id="esteh" type="text" class="text-center form-control" value="0" data-harga="5000" readonly>
 							  	<div class="input-group-append">
-    								<button class="btn btn-success tambah" type="button">+</button>
+    								<button class="btn btn-success tambah" type="button" data-jenis="esteh">+</button>
   								</div>
 							</div>
 				  		</div>
@@ -101,8 +101,8 @@
         <div class="row">
         	<div class="col-6">
         		<h5>Ringkasan</h5>
-        		<p>Total: <span class="total"></span> <br>
-        		Harga: <span class="harga"></span>
+        		<p>Total: <span id="total">_</span> <br>
+        		Harga: <span id="harga" class="text-danger">Rp.0</span>
         		</p>
         	</div>
         	<div class="col-6">
