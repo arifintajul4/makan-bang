@@ -50,11 +50,13 @@ function initializeLiff(myLiffId) {
 function initializeApp() {
     var btnLogin = document.getElementById('btnLogin');
     if(btnLogin){
-        btnLogin.addEventListener('click', function() {
-            if(liff.login()){
-                window.location.href = "order.php";
-            }
-        });
+        if (!liff.isLoggedIn()) {
+            btnLogin.addEventListener('click', function() {
+                liff.login();
+            });
+        }else{
+            window.location.href = "order.php";
+        }
     }else{
         handleBtnOrder();   
     }
