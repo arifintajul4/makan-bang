@@ -66,9 +66,10 @@ function initializeApp() {
         } 
     }
 }
+var displayName;
 function getProfile(){
     liff.getProfile().then(function(profile) {
-        var displayName = profile.displayName;
+        displayName = profile.displayName;
         document.getElementById('displayName').textContent = displayName;
     }).catch(function(error) {
         window.alert('Error getting profile: ' + error);
